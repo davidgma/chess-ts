@@ -1,0 +1,23 @@
+#!/bin/bash
+# The command to build the Angular project so that it can be served by Github pages.
+# The angular.json file should have the outputPath set to the dist directory only:
+# "outputPath": "dist",
+# The Github setting for pages should choose the gh-pages branch.
+# npm install -g angular-cli-ghpages
+
+
+if [ $# -gt 0 ]; then
+	message=$*
+else
+	message="Upload changes."
+fi
+
+echo $message
+
+# Build for github
+ng build --base-href "https://davidgma.github.io/chess-ts/"
+git add *
+git commit -a -m "${message}"
+git push
+ngh
+

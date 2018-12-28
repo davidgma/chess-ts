@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chess-ts-app",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -115,6 +115,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "chess-ts": {
+      "root": "projects/chess-ts",
+      "sourceRoot": "projects/chess-ts/src",
+      "projectType": "library",
+      "prefix": "cts",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/chess-ts/tsconfig.lib.json",
+            "project": "projects/chess-ts/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/chess-ts/src/test.ts",
+            "tsConfig": "projects/chess-ts/tsconfig.spec.json",
+            "karmaConfig": "projects/chess-ts/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/chess-ts/tsconfig.lib.json",
+              "projects/chess-ts/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
