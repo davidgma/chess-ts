@@ -15,8 +15,8 @@ fi
 echo $message
 
 # Build for github
-ng build chess-ts
 ng build --base-href "https://davidgma.github.io/chess-ts/"
+ng build chess-ts
 git add *
 git commit -a -m "${message}"
 git push
