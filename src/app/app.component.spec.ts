@@ -1,5 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { Chess} from 'chess-ts';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,4 +26,15 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to chess-ts-app!');
   }));
+});
+
+describe('Chess class', () => {
+  let chess: Chess;
+  beforeAll(() => {
+    chess = new Chess();
+  });
+  it('should have the correct opening fen when called with no arg',
+  () => {
+    expect(chess.fen).toEqual('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1');
+  });
 });
