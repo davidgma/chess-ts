@@ -22,6 +22,10 @@ __webpack_require__.r(__webpack_exports__);
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/* todo:
+    make async and sync alternatives to the calling.
+    bring enums into the chess.ts file.
+*/
 /** @enum {string} */
 var Colour = {
     WHITE: 'w',

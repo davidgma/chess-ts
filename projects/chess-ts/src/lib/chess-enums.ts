@@ -1,4 +1,9 @@
 
+/* todo:
+    make async and sync alternatives to the calling.
+    bring enums into the chess.ts file.
+*/
+
 export enum Colour {
     WHITE = 'w',
     BLACK = 'b'
