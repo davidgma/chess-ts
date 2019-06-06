@@ -5,6 +5,10 @@
 # The Github setting for pages should choose the gh-pages branch.
 # npm install -g angular-cli-ghpages
 
+# On Typescript version error:
+# npm install typescript@">=3.4.0 <3.5.0"
+# npm i typescript@3.1.6
+
 
 if [ $# -gt 0 ]; then
 	message=$*
