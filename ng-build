@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Old, use the numbered scripts instead.
+
+# The command to build the Angular project so that it can be served by Github pages.
+# The angular.json file should have the outputPath set to the dist directory only:
+# "outputPath": "dist",
+# The Github setting for pages should choose the gh-pages branch.
+# npm install -g angular-cli-ghpages
+
+# On Typescript version error:
+# npm install typescript@">=3.4.0 <3.5.0"
+
+
+if [ $# -gt 0 ]; then
+	message=$*
+else
+	message="Upload changes."
+fi
+
+echo $message
+
+# Build for github
+ng build chess-ts
+ng build --base-href "https://davidgma.github.io/chess-ts/"
+cp --archive --recursive ./dist2/* ./dist
+
+
+# Send master files to github
+git checkout master
+git add *
+git commit -a -m "${message}"
+git push origin master
+
+# Update github pages
+echo Updating github pages...
+echo checkout gh-pages
+git checkout gh-pages
+git branch
+rm -rf ./dist
+echo Copying dist directory from master
+git checkout master dist/*
+cp -r ./dist/* .
+rm -r dist
+git add *
+git commit -a -m "${message}"
+git push origin gh-pages
+
+git checkout master
+
+

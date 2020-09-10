@@ -1,0 +1,21 @@
+{
+  "name": "chess-ts",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  },
+  "main": "bundles/chess-ts.umd.js",
+  "module": "fesm5/chess-ts.js",
+  "es2015": "fesm2015/chess-ts.js",
+  "esm5": "esm5/chess-ts.js",
+  "esm2015": "esm2015/chess-ts.js",
+  "fesm5": "fesm5/chess-ts.js",
+  "fesm2015": "fesm2015/chess-ts.js",
+  "typings": "chess-ts.d.ts",
+  "metadata": "chess-ts.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Build for github
+ng build chess-ts
+ng build --base-href "https://davidgma.github.io/chess-ts/"
+cp --archive --recursive ./dist2/* ./dist
+

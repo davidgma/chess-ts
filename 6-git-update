@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $# -gt 0 ]; then
+	message=$*
+else
+	message="Upload changes."
+fi
+
+# Send master files to github
+git checkout master
+git add *
+git commit -a -m "${message}"
+git push origin master
+
+# Update github pages
+echo Updating github pages...
+echo checkout gh-pages
+git checkout gh-pages
+echo "Contents of gh-pages' version of the directory:"
+ls -a
+echo "Current branch:"
+git branch
+
+# If the dist directory is ever deleted from the master,
+# then the following will may be needed but probably won't:
+# git checkout master dist/*
+
+cp -r ./dist/* .
+git add *
+git commit -a -m "${message}"
+git push origin gh-pages
+
+git checkout master
